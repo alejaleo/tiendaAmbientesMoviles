@@ -1,0 +1,12 @@
+ion-footer ion-toolbar {
+  --background: var(--color-bg);
+  --border-color: var(--color-divider);
+  --padding-start: var(--space-3);
+  --padding-end: var(--space-3);
+
+  ion-button {
+    --background: var(--color-primary);
+    --color: #ffffff;
+    height: 52px;
+  }
+}

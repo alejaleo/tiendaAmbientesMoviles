@@ -1,0 +1,51 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Crear nuevo producto</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <ion-input fill="outline" label="ID" label-placement="floating"
+      [(ngModel)]="id" type="text">
+      <ion-icon slot="start" name="id-card-outline"></ion-icon>
+    </ion-input>
+
+    <ion-input fill="outline" label="Título" label-placement="floating"
+      [(ngModel)]="title" type="text">
+      <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+    </ion-input>
+
+    <ion-input fill="outline" label="Precio" label-placement="floating"
+      [(ngModel)]="price" type="number">
+      <ion-icon slot="start" name="cash-outline"></ion-icon>
+    </ion-input>
+
+    <ion-input fill="outline" label="Descripción" label-placement="floating"
+      [(ngModel)]="description" type="text">
+      <ion-icon slot="start" name="document-text-outline"></ion-icon>
+    </ion-input>
+
+    <ion-input fill="outline" label="Categoría" label-placement="floating"
+      [(ngModel)]="category" type="text">
+      <ion-icon slot="start" name="grid-outline"></ion-icon>
+    </ion-input>
+
+    <ion-input fill="outline" label="Imagen (URL)" label-placement="floating"
+      [(ngModel)]="image" type="text">
+      <ion-icon slot="start" name="image-outline"></ion-icon>
+    </ion-input>
+
+    <ion-input fill="outline" label="Puntuación" label-placement="floating"
+      [(ngModel)]="rating.rate" type="number">
+      <ion-icon slot="start" name="star-outline"></ion-icon>
+    </ion-input>
+
+    <ion-input fill="outline" label="Número de opiniones" label-placement="floating"
+      [(ngModel)]="rating.count" type="number">
+      <ion-icon slot="start" name="people-outline"></ion-icon>
+    </ion-input>
+
+    <ion-button expand="block" (click)="mostrarTexto()">Crear producto</ion-button>
+
+  </ion-card-content>
+</ion-card>

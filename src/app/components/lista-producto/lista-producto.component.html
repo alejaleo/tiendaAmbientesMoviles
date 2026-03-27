@@ -1,0 +1,19 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Lista de productos</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let producto of listaProductos; last as isLast" [lines]="isLast ? 'none' : 'full'">
+        <img slot="start" [src]="producto.image" [alt]="producto.title" class="product-img">
+        <ion-label>
+          <h3>{{ producto.title }}</h3>
+          <p>{{ producto.category }}</p>
+          <p class="price">$ {{ producto.price }}</p>
+          <p>★ {{ producto.rating.rate }} ({{ producto.rating.count }} opiniones)</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,8 @@
+.product-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  margin-right: var(--space-3);
+}

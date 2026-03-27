@@ -1,0 +1,20 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Confirmar datos</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item lines="full">
+      <ion-checkbox slot="start" (ionChange)="bloquearTelefono()"></ion-checkbox>
+      <ion-input [disabled]="telefono" [placeholder]="labelTelefono" [value]="valorTelefono"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-checkbox slot="start" (ionChange)="bloquearDireccion()"></ion-checkbox>
+      <ion-input [disabled]="direccion" [placeholder]="labelDireccion" [value]="valorDireccion"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-checkbox slot="start" (ionChange)="bloquearNombre()"></ion-checkbox>
+      <ion-input [disabled]="nombre" [placeholder]="labelNombre" [value]="valorNombre"></ion-input>
+    </ion-item>
+  </ion-card-content>
+</ion-card>

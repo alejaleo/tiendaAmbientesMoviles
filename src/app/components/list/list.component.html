@@ -1,0 +1,34 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Método de pago</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-select placeholder="Selecciona un método">
+      <ion-select-option *ngFor="let opcion of lista" [value]="opcion">{{ opcion }}</ion-select-option>
+    </ion-select>
+
+    <ion-list>
+      <ion-item>
+        <ion-label slot="start">Tarjeta</ion-label>
+        <ion-label slot="end">{{ tarjeta }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="start">Vencimiento</ion-label>
+        <ion-label slot="end">{{ fechaVencimiento }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="start">CVV</ion-label>
+        <ion-label slot="end">{{ cvv }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label slot="start">Titular</ion-label>
+        <ion-label slot="end">{{ nombreTarjeta }}</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label slot="start">Dirección</ion-label>
+        <ion-label slot="end">{{ direccion }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

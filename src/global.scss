@@ -1,0 +1,155 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+/* @import '@ionic/angular/css/palettes/dark.system.css'; */
+
+// ============================================================
+// TIPOGRAFÍA GLOBAL
+// ============================================================
+
+* {
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-dark);
+  font-weight: var(--font-bold);
+  line-height: 1.2;
+  margin: 0 0 var(--space-2) 0;
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl);  }
+
+p {
+  color: var(--color-text);
+  font-size: var(--text-md);
+  line-height: 1.5;
+  margin: 0 0 var(--space-3) 0;
+}
+
+// ============================================================
+// IONIC — ESTILOS GLOBALES
+// ============================================================
+
+ion-content {
+  // Orbs de color detrás de las cards — necesarios para que el blur se vea
+  --background:
+    radial-gradient(ellipse 55% 35% at 10% 12%, rgba(124, 58, 237, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 35% at 90% 80%, rgba(252, 101, 31, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 25% at 55% 45%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+    #111112;
+}
+
+ion-toolbar {
+  --background:   rgba(17, 17, 18, 0.72);
+  --color:        var(--color-text);
+  --border-color: rgba(255, 255, 255, 0.08);
+
+  &::part(native) {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  ion-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semi);
+    color: var(--color-text);
+    letter-spacing: 0.3px;
+  }
+
+  ion-back-button  { --color: var(--color-primary); }
+  ion-menu-button  { --color: var(--color-text); }
+}
+
+ion-header {
+  &::after { display: none; }
+}
+
+ion-button {
+  --border-radius: var(--radius-md);
+  --padding-top:    12px;
+  --padding-bottom: 12px;
+  font-weight: var(--font-semi);
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+// ── Avatar circular ──────────────────────────────────────────
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 2.5px solid var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(252, 101, 31, 0.20);
+  display: block;
+  margin: 0 auto var(--space-4);
+}
+
+// ── Badge / chip ──────────────────────────────────────────────
+// <span class="badge">texto</span>
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semi);
+  background: rgba(252, 101, 31, 0.1);
+  color: var(--color-primary);
+}
+
+// ── Precio destacado ──────────────────────────────────────────
+// <span class="price">$ 99.99</span>
+.price {
+  font-size: var(--text-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+}
+
+// CLASES UTILITARIAS
+
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-dark    { background-color: var(--color-dark)   !important; }
+.bg-white   { background-color: var(--color-bg)     !important; }
+
+.text-primary { color: var(--color-primary) !important; }
+.text-dark    { color: var(--color-dark)    !important; }
+.text-muted   { color: var(--color-text-muted) !important; }
+
+.page-content {
+  padding: var(--space-4);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
