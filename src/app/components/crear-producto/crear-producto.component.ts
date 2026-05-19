@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { idCardOutline, pricetagOutline, cashOutline, documentTextOutline, gridOutline, imageOutline, starOutline, peopleOutline } from 'ionicons/icons';
 import {
@@ -11,6 +11,9 @@ import {
   IonIcon,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
+import { Product } from 'src/app/data/interfaces/product';
+
+
 
 @Component({
   selector: 'app-crear-producto',
@@ -41,6 +44,8 @@ export class CrearProductoComponent implements OnInit {
     count: 120,
   };
 
+  @Output() productoCreado = new EventEmitter<Product>();
+
   constructor() {
     addIcons({ idCardOutline, pricetagOutline, cashOutline, documentTextOutline, gridOutline, imageOutline, starOutline, peopleOutline });
   }
@@ -56,5 +61,22 @@ export class CrearProductoComponent implements OnInit {
     console.log('category: ', this.category);
     console.log('image: ', this.image);
     console.log('Raiting:', this.rating);
+  }
+
+  crearProducto() {
+    const nuevoProducto: Product = {
+      id: parseInt(this.id),
+      title: this.title,
+      price: this.price,
+      description: this.description,
+      category: this.category,
+      image: this.image,
+      rating: {
+        rate: this.rating.rate ?? 0,
+        count: this.rating.count ?? 0
+      }
+    };
+    this.productoCreado.emit(nuevoProducto);
+    console.log('Producto creado: ', nuevoProducto);
   }
 }

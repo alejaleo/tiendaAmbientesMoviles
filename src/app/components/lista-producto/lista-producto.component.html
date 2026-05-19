@@ -5,14 +5,34 @@
 
   <ion-card-content>
     <ion-list>
-      <ion-item *ngFor="let producto of listaProductos; last as isLast" [lines]="isLast ? 'none' : 'full'">
-        <img slot="start" [src]="producto.image" [alt]="producto.title" class="product-img">
+      <ion-item
+        *ngFor="let producto of listaProductos; last as isLast"
+        [lines]="isLast ? 'none' : 'full'"
+      >
+        <img
+          slot="start"
+          [src]="producto.image"
+          [alt]="producto.title"
+          class="product-img"
+        />
         <ion-label>
           <h3>{{ producto.title }}</h3>
           <p>{{ producto.category }}</p>
           <p class="price">$ {{ producto.price }}</p>
-          <p>★ {{ producto.rating.rate }} ({{ producto.rating.count }} opiniones)</p>
+          <p>
+            ★ {{ producto.rating.rate }} ({{ producto.rating.count }} opiniones)
+          </p>
         </ion-label>
+        @if (mostrarEliminar) {
+          <ion-button
+            expand="block"
+            color="danger"
+            (click)="deleteProduct(producto.id)"
+            onkeypress=""
+          >
+            Eliminar
+          </ion-button>
+        }
       </ion-item>
     </ion-list>
   </ion-card-content>

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton } from '@ionic/angular/standalone';
 import { CrearProductoComponent } from 'src/app/components/crear-producto/crear-producto.component';
 import { ListaProductoComponent } from 'src/app/components/lista-producto/lista-producto.component';
+import { Product } from 'src/app/data/interfaces/product';
+import { ProductService } from 'src/app/data/services/productService';
 
 @Component({
   selector: 'app-producto',
@@ -14,9 +16,22 @@ import { ListaProductoComponent } from 'src/app/components/lista-producto/lista-
 })
 export class ProductoPage implements OnInit {
 
-  constructor() { }
+  productsPage: Product[] = [];
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
+    this.productService.getProducts();
   }
+
+  recibirProductoCreado(producto: Product) {
+    console.log('Producto recibido en el padre: ', producto);
+    this.productService.addProduct(producto);
+  }
+
+  deleteProduct(productId: number) {
+    this.productService.deleteProduct(productId);
+  }
+
 
 }

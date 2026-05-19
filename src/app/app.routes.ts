@@ -23,6 +23,15 @@ export const routes: Routes = [
     path: 'producto',
     loadComponent: () => import('./modules/producto/producto.page').then( m => m.ProductoPage)
   },
+  {
+    path: 'market',
+    loadComponent: () => import('./modules/market/market.page').then( m => m.MarketPage)
+  },
+  {
+    path: 'market',
+    loadComponent: () => import('./modules/market/market.page').then( m => m.MarketPage)
+  },
+
   // {
   //   path: 'user-info',
   //   loadComponent: () => import('./components/info-usuario/info-usuario.component').then( m => m.InfoUsuarioComponent),
