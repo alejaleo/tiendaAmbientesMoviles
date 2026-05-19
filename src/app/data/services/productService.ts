@@ -14,8 +14,12 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.url);
+  getProducts() {
+    if (this.productsPage.length > 0) return;
+    this.http.get<Product[]>(this.url).subscribe({
+      next: (response) => { this.productsPage.push(...response); },
+      error: (err) => { console.error('Error al obtener productos: ', err); }
+    });
   }
 
   addProduct(product: Product) {

@@ -1,8 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, ToastController } from '@ionic/angular/standalone';
-import { Subscription } from 'rxjs';
 import { ProductService } from 'src/app/data/services/productService';
 import { ListaProductoComponent } from 'src/app/components/lista-producto/lista-producto.component';
 import { Product } from 'src/app/data/interfaces/product';
@@ -16,9 +15,7 @@ import { cartOutline } from 'ionicons/icons';
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, CommonModule, FormsModule, ListaProductoComponent]
 })
-export class MarketPage implements OnInit, OnDestroy {
-  private subscription: Subscription = new Subscription();
-
+export class MarketPage implements OnInit {
   get productos(): Product[] {
     return [...this.productService.localProducts, ...this.productService.productsPage];
   }
@@ -31,20 +28,7 @@ export class MarketPage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    if (this.productService.productsPage.length === 0) {
-      this.subscription = this.productService.getProducts().subscribe({
-        next: (response) => {
-          this.productService.productsPage.push(...response);
-        },
-        error: (err) => {
-          console.error('Error al obtener productos: ', err);
-        }
-      });
-    }
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.productService.getProducts();
   }
 
   async onAgregarAlCarrito() {
