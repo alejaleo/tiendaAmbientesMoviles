@@ -16,20 +16,20 @@ import { ProductService } from 'src/app/data/services/productService';
 })
 export class ProductoPage implements OnInit {
 
-  productsPage: Product[] = [];
+  get productsPage() {
+    return this.productService.localProducts;
+  }
 
   constructor(private productService: ProductService) { }
 
-  ngOnInit() {
-    this.productService.getProducts();
-  }
+  ngOnInit() {}
 
   recibirProductoCreado(producto: Product) {
     console.log('Producto recibido en el padre: ', producto);
     this.productService.addProduct(producto);
   }
 
-  deleteProduct(productId: number) {
+  deleteProduct(productId: number | string) {
     this.productService.deleteProduct(productId);
   }
 

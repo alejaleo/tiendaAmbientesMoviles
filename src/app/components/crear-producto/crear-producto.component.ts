@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { idCardOutline, pricetagOutline, cashOutline, documentTextOutline, gridOutline, imageOutline, starOutline, peopleOutline } from 'ionicons/icons';
+import { pricetagOutline, cashOutline, documentTextOutline, gridOutline, imageOutline, starOutline, peopleOutline } from 'ionicons/icons';
 import {
   IonCard,
   IonCardHeader,
@@ -33,28 +33,26 @@ import { Product } from 'src/app/data/interfaces/product';
 })
 export class CrearProductoComponent implements OnInit {
   texto: string = 'Crear Producto';
-  id: string = '4';
-  title: string = 'Nuevo Producto';
-  price: number = 1500;
-  description: string = 'Ese producto es nuevo y de alta calidad';
-  category: string = 'ropa';
-  image: string = 'url_de_la_imagen';
+  title: string = '';
+  price: number | null = null;
+  description: string = '';
+  category: string = '';
+  image: string = '';
   rating: { rate: number | null; count: number | null } = {
-    rate: 5,
-    count: 120,
+    rate: null,
+    count: null,
   };
 
   @Output() productoCreado = new EventEmitter<Product>();
 
   constructor() {
-    addIcons({ idCardOutline, pricetagOutline, cashOutline, documentTextOutline, gridOutline, imageOutline, starOutline, peopleOutline });
+    addIcons({ pricetagOutline, cashOutline, documentTextOutline, gridOutline, imageOutline, starOutline, peopleOutline });
   }
 
   ngOnInit() {}
 
   mostrarTexto() {
     console.log('texto: ', this.texto);
-    console.log('Id: ', this.id);
     console.log('Title: ', this.title);
     console.log('price', this.price);
     console.log('description: ', this.description);
@@ -65,9 +63,9 @@ export class CrearProductoComponent implements OnInit {
 
   crearProducto() {
     const nuevoProducto: Product = {
-      id: parseInt(this.id),
+      id: crypto.randomUUID(),
       title: this.title,
-      price: this.price,
+      price: this.price ?? 0,
       description: this.description,
       category: this.category,
       image: this.image,

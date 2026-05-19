@@ -3,28 +3,18 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Mi Tienda</ion-title>
+    <ion-title>Kuromi Store</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="page-content">
 
-    <!-- Saludo -->
     <div class="greeting">
       <p class="greeting__sub">Hola, {{ nombre }} 👋</p>
       <h1 class="greeting__title">¿Qué quieres comprar hoy?</h1>
     </div>
 
-    <!-- Buscador -->
-    <ion-searchbar
-      class="home-searchbar"
-      placeholder="Buscar productos..."
-      animated="true"
-      (ionInput)="busqueda = $event.detail.value ?? ''">
-    </ion-searchbar>
-
-    <!-- Banner promo -->
     <div class="promo-banner">
       <div class="promo-banner__text">
         <p class="promo-banner__tag">Oferta especial</p>
@@ -34,89 +24,21 @@
       <div class="promo-banner__emoji">🛍️</div>
     </div>
 
-    <!-- Categorías -->
-    <div class="categorias-scroll">
-      <ion-chip
-        *ngFor="let cat of categorias"
-        [class.active]="cat.id === categoriaActiva"
-        (click)="seleccionarCategoria(cat.id)">
-        <span class="cat-icono">{{ cat.icono }}</span>
-        <ion-label>{{ cat.label }}</ion-label>
-      </ion-chip>
+    <div class="info-cards">
+      <div class="info-card" *ngFor="let o of infoCards">
+        <div class="info-card__icono" [style.background]="o.colorBg">
+          <span>{{ o.icono }}</span>
+        </div>
+        <div class="info-card__texto">
+          <p class="info-card__titulo">{{ o.titulo }}</p>
+          <p class="info-card__sub">{{ o.sub }}</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Skeleton mientras carga -->
-    <div class="productos-grid" *ngIf="cargando">
-      <ion-card class="skeleton-card" *ngFor="let s of skeletons">
-        <div class="skeleton-card__img"></div>
-        <ion-card-content class="skeleton-card__body">
-          <ion-skeleton-text [animated]="true" style="width: 75%; height: 14px; border-radius: 6px"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 45%; height: 12px; border-radius: 6px; margin-top: 6px"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 55%; height: 16px; border-radius: 6px; margin-top: 10px"></ion-skeleton-text>
-        </ion-card-content>
-      </ion-card>
-    </div>
-
-    <!-- Productos -->
-    <div *ngIf="!cargando">
-
-      <div class="section-header">
-        <p class="section-title">Destacados</p>
-        <a class="ver-todos" [routerLink]="['/producto']">Ver todos →</a>
-      </div>
-
-      <!-- Sin resultados -->
-      <div class="empty-state" *ngIf="productosFiltrados.length === 0">
-        <p class="empty-state__icono">🔍</p>
-        <p class="empty-state__titulo">Sin resultados</p>
-        <p class="empty-state__sub">No hay productos en esta categoría</p>
-        <ion-button fill="outline" (click)="seleccionarCategoria('Todo')">
-          Ver todos los productos
-        </ion-button>
-      </div>
-
-      <!-- Grid de productos -->
-      <div class="productos-grid" *ngIf="productosFiltrados.length > 0">
-        <ion-card
-          class="producto-card"
-          *ngFor="let p of productosFiltrados"
-          [routerLink]="['/pay']">
-
-          <div class="producto-card__img" [style.background]="p.color">
-            <span class="producto-card__icono">{{ p.icono }}</span>
-
-            <ion-badge class="producto-card__badge"
-              [class.badge--oferta]="p.badge === 'Oferta'"
-              [class.badge--nuevo]="p.badge === 'Nuevo'"
-              [class.badge--top]="p.badge === 'Top'"
-              *ngIf="p.badge">
-              {{ p.badge }}
-            </ion-badge>
-          </div>
-
-          <ion-card-content class="producto-card__info">
-            <p class="producto-card__nombre">{{ p.nombre }}</p>
-
-            <div class="producto-card__rating">
-              <span class="rating-star">★</span>
-              <span class="rating-value">{{ p.rating }}</span>
-              <span class="rating-count">({{ p.reviews }})</span>
-            </div>
-
-            <div class="producto-card__precios">
-              <span class="precio-actual">{{ p.precio }}</span>
-              <ion-badge class="precio-descuento" *ngIf="p.descuento">
-                -{{ p.descuento }}%
-              </ion-badge>
-            </div>
-
-            <p class="precio-original" *ngIf="p.precioOriginal">{{ p.precioOriginal }}</p>
-          </ion-card-content>
-
-        </ion-card>
-      </div>
-
-    </div>
+    <ion-button expand="block" [routerLink]="['/market']" class="btn-comprar">
+      Ver productos y comprar
+    </ion-button>
 
   </div>
 </ion-content>

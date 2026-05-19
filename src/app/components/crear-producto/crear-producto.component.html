@@ -5,42 +5,44 @@
 
   <ion-card-content>
 
-    <ion-input fill="outline" label="ID" label-placement="floating"
-      [(ngModel)]="id" type="text">
-      <ion-icon slot="start" name="id-card-outline"></ion-icon>
-    </ion-input>
-
-    <ion-input fill="outline" label="Título" label-placement="floating"
+    <ion-input fill="outline" label="Título" label-placement="stacked"
+      placeholder="Ej: Camiseta deportiva azul"
       [(ngModel)]="title" type="text">
       <ion-icon slot="start" name="pricetag-outline"></ion-icon>
     </ion-input>
 
-    <ion-input fill="outline" label="Precio" label-placement="floating"
+    <ion-input fill="outline" label="Precio" label-placement="stacked"
+      placeholder="Ej: 59900"
       [(ngModel)]="price" type="number">
       <ion-icon slot="start" name="cash-outline"></ion-icon>
     </ion-input>
 
-    <ion-input fill="outline" label="Descripción" label-placement="floating"
+    <ion-input fill="outline" label="Descripción" label-placement="stacked"
+      placeholder="Describe brevemente el producto"
       [(ngModel)]="description" type="text">
       <ion-icon slot="start" name="document-text-outline"></ion-icon>
     </ion-input>
 
-    <ion-input fill="outline" label="Categoría" label-placement="floating"
+    <ion-input fill="outline" label="Categoría" label-placement="stacked"
+      placeholder="Ej: ropa, electrónica, hogar"
       [(ngModel)]="category" type="text">
       <ion-icon slot="start" name="grid-outline"></ion-icon>
     </ion-input>
 
-    <ion-input fill="outline" label="Imagen (URL)" label-placement="floating"
+    <ion-input fill="outline" label="Imagen (URL)" label-placement="stacked"
+      placeholder="https://ejemplo.com/imagen.jpg"
       [(ngModel)]="image" type="text">
       <ion-icon slot="start" name="image-outline"></ion-icon>
     </ion-input>
 
-    <ion-input fill="outline" label="Puntuación" label-placement="floating"
+    <ion-input fill="outline" label="Puntuación" label-placement="stacked"
+      placeholder="0.0 – 5.0"
       [(ngModel)]="rating.rate" type="number">
       <ion-icon slot="start" name="star-outline"></ion-icon>
     </ion-input>
 
-    <ion-input fill="outline" label="Número de opiniones" label-placement="floating"
+    <ion-input fill="outline" label="Número de opiniones" label-placement="stacked"
+      placeholder="Ej: 120"
       [(ngModel)]="rating.count" type="number">
       <ion-icon slot="start" name="people-outline"></ion-icon>
     </ion-input>

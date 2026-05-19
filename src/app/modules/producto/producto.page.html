@@ -10,6 +10,8 @@
 <ion-content [fullscreen]="true">
   <div class="page-content">
     <app-crear-producto (productoCreado)="recibirProductoCreado($event)"></app-crear-producto>
-    <app-lista-producto [listaProductos]="productsPage" [mostrarEliminar]="true" (productoEliminado)="deleteProduct($event)"></app-lista-producto>
+    @if (productsPage.length > 0) {
+      <app-lista-producto [listaProductos]="productsPage" [mostrarEliminar]="true" (productoEliminado)="deleteProduct($event)"></app-lista-producto>
+    }
   </div>
 </ion-content>

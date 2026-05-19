@@ -16,8 +16,8 @@ export class ListComponent implements OnInit {
   tarjeta:          string = '**** **** **** 1234';
   fechaVencimiento: string = '12/24';
   cvv:              string = '***';
-  nombreTarjeta:    string = 'Jose Carmelo';
-  direccion:        string = '123 Main St, City, State';
+  nombreTarjeta:    string = 'Leidy Silva';
+  direccion:        string = 'Far far away 232';
 
   constructor() {}
 

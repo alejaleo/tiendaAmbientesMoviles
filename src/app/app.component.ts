@@ -14,11 +14,10 @@ import { homeSharp, cardSharp, personSharp, bagHandleSharp } from 'ionicons/icon
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inicio',  url: '/home', icon: 'home' },
-    { title: 'Pagar',   url: '/pay',  icon: 'card' },
-    { title: 'Perfil',  url: '/perfil', icon: 'person' },
+    { title: 'Inicio',   url: '/home',     icon: 'home' },
+    { title: 'Perfil',   url: '/perfil',   icon: 'person' },
     { title: 'Producto', url: '/producto', icon: 'bag-handle' },
-    { title: 'Market', url: '/market', icon: 'bag-handle' }
+    { title: 'Market',   url: '/market',   icon: 'bag-handle' }
   ];
   constructor() {
     addIcons({ homeSharp, cardSharp, personSharp, bagHandleSharp });

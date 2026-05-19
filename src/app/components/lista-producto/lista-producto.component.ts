@@ -11,19 +11,22 @@ import { Product } from 'src/app/data/interfaces/product';
   standalone: true,
   imports: [NgFor, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel, IonButton],
 })
-export class ListaProductoComponent  implements OnInit {
-  @Input() listaProductos:Product[] = []
+export class ListaProductoComponent implements OnInit {
+  @Input() listaProductos: Product[] = [];
   @Input() mostrarEliminar: boolean = false;
-  @Output() productoEliminado = new EventEmitter<number>();
+  @Input() mostrarCarrito: boolean = false;
+  @Output() productoEliminado = new EventEmitter<number | string>();
+  @Output() agregarAlCarrito = new EventEmitter<Product>();
 
-
-  constructor( ) { }
+  constructor() { }
 
   ngOnInit() {}
 
-  deleteProduct(productId: number) {
+  deleteProduct(productId: number | string) {
     this.productoEliminado.emit(productId);
   }
 
-
+  onAgregarAlCarrito(producto: Product) {
+    this.agregarAlCarrito.emit(producto);
+  }
 }

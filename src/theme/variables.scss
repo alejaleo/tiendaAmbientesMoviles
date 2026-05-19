@@ -1,21 +1,18 @@
 :root {
 
-  // COLOR PRIMARIO (naranja)
-  --ion-color-primary:              #fc651f;
-  --ion-color-primary-rgb:          252, 101, 31;
+  --ion-color-primary:              #5dc1b9;
+  --ion-color-primary-rgb:          93, 193, 185;
   --ion-color-primary-contrast:     #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade:        #de5919;
-  --ion-color-primary-tint:         #ff7d3c;
+  --ion-color-primary-shade:        #4aa9a1;
+  --ion-color-primary-tint:         #8ae0db;
 
-  // FONDO Y TEXTO BASE — modo oscuro
-  --ion-background-color:     #111112;
-  --ion-background-color-rgb: 17, 17, 18;
+  --ion-background-color:     #0d1f1e;
+  --ion-background-color-rgb: 13, 31, 30;
 
   --ion-text-color:           #f0f0f2;
   --ion-text-color-rgb:       240, 240, 242;
 
-  // Stepped colors — escala de #111112 a #f0f0f2
   --ion-color-step-50:   #1c1c1e;
   --ion-color-step-100:  #28282a;
   --ion-color-step-150:  #343436;
@@ -36,58 +33,55 @@
   --ion-color-step-900:  #e8e8ea;
   --ion-color-step-950:  #f4f4f6;
 
-  // ── Ionic: toolbar / tabs ─────────────────────────────────
-  --ion-toolbar-background:     #1c1c1e;
+  --ion-toolbar-background:     #112422;
   --ion-toolbar-color:          #f0f0f2;
 
-  --ion-tab-bar-background:     #1c1c1e;
+  --ion-tab-bar-background:     #112422;
   --ion-tab-bar-color:          rgba(240, 240, 242, 0.4);
-  --ion-tab-bar-color-selected: #fc651f;
+  --ion-tab-bar-color-selected: #5dc1b9;
 
-  --ion-border-color:           rgba(255, 255, 255, 0.08);
-  --ion-overlay-background-color: #1c1c1e;
+  --ion-border-color:             rgba(255, 255, 255, 0.08);
+  --ion-overlay-background-color: #112422;
   --ion-box-shadow-color:         rgba(0, 0, 0, 0.4);
 
-  // ── Ionic: ion-item / ion-list ────────────────────────────
-  --ion-item-background:        transparent;
-  --ion-item-color:             #f0f0f2;
+  --ion-item-background: transparent;
+  --ion-item-color:      #f0f0f2;
 
-  // ── Ionic: ion-card ───────────────────────────────────────
-  --ion-card-background:        #1c1c1e;
-  --ion-card-color:             #f0f0f2;
+  --ion-card-background: #132e2c;
+  --ion-card-color:      #f0f0f2;
 
-  // ── Ionic: ion-input ──────────────────────────────────────
-  --ion-input-background:           #2c2c2e;
+  --ion-input-background:           #1a3533;
   --ion-input-color:                #f0f0f2;
   --ion-input-placeholder-color:    rgba(240, 240, 242, 0.50);
   --ion-input-border-color:         rgba(255, 255, 255, 0.08);
-  --ion-input-focused-border-color: #fc651f;
+  --ion-input-focused-border-color: #5dc1b9;
 
-  // ── Ionic: ion-select ─────────────────────────────────────
-  --ion-select-background:       #2c2c2e;
-  --ion-select-color:            #f0f0f2;
+  --ion-select-background:        #1a3533;
+  --ion-select-color:             #f0f0f2;
   --ion-select-placeholder-color: rgba(240, 240, 242, 0.50);
 
-  // PALETA CUSTOM
-  --color-primary:         #fc651f;
-  --color-primary-shade:   #de5919;
-  --color-primary-tint:    #ff7d3c;
+  --color-primary:       #5dc1b9;
+  --color-primary-shade: #4aa9a1;
+  --color-primary-tint:  #8ae0db;
 
-  --color-dark:            #f0f0f2;   // texto claro sobre fondo oscuro
-  --color-dark-shade:      #d8d8da;
-  --color-dark-tint:       #ffffff;
+  --color-accent:      #ff69b4;
+  --color-accent-tint: #ff97d9;
+  --color-mint:        #b8f0ed;
 
-  --color-bg:              #111112;   // fondo de páginas
-  --color-surface:         #1c1c1e;   // fondo de cards
-  --color-surface-2:       #2c2c2e;   // cards dentro de cards / inputs
-  --color-text:            #f0f0f2;
-  --color-text-muted:      rgba(240, 240, 242, 0.50);
+  --color-dark:       #f0f0f2;
+  --color-dark-shade: #d8d8da;
+  --color-dark-tint:  #ffffff;
+
+  --color-bg:        #0d1f1e;
+  --color-surface:   #112422;
+  --color-surface-2: #1a3533;
+
+  --color-text:         #f0f0f2;
+  --color-text-muted:   rgba(240, 240, 242, 0.50);
   --color-text-on-primary: #ffffff;
-  --color-divider:         rgba(255, 255, 255, 0.08);
+  --color-divider:      rgba(255, 255, 255, 0.08);
+  --color-white:        #ffffff;
 
-  --color-white:           #ffffff;
-
-  // TIPOGRAFÍA
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --text-xs:  0.75rem;
@@ -103,7 +97,6 @@
   --font-semi:   600;
   --font-bold:   700;
 
-  // ESPACIADO & BORDES
   --space-1:  4px;
   --space-2:  8px;
   --space-3:  12px;
@@ -119,18 +112,11 @@
   --radius-xl:   24px;
   --radius-full: 9999px;
 
-  // Sombras — en dark mode: border sutil + sombra negra
   --shadow-sm: 0 0 0 1px rgba(255, 255, 255, 0.06);
   --shadow-md: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 24px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 40px rgba(0, 0, 0, 0.5);
 }
 
-// ════════════════════════════════════════════════════════════
-// ESTILOS GLOBALES DE COMPONENTES IONIC
-// Defínelos aquí una sola vez — funcionan en toda la app
-// ════════════════════════════════════════════════════════════
-
-// ── ion-card ─────────────────────────────────────────────────
 ion-card {
   --background: rgba(255, 255, 255, 0.06);
   --color:      var(--color-text);
@@ -162,7 +148,6 @@ ion-card-content {
   padding: var(--space-3) 0 0 0;
 }
 
-// ── ion-list / ion-item ──────────────────────────────────────
 ion-list {
   background: transparent;
   padding: 0;
@@ -170,7 +155,7 @@ ion-list {
 
 ion-item {
   --background:           rgba(255, 255, 255, 0.04);
-  --background-activated: rgba(252, 101, 31, 0.10);
+  --background-activated: rgba(93, 193, 185, 0.10);
   --color:                var(--color-text);
   --border-color:         var(--color-divider);
   --padding-start:        0;
@@ -197,8 +182,6 @@ ion-item {
     }
   }
 
-  // Cuando ion-input / ion-select / ion-textarea van dentro de ion-item,
-  // no deben tener su propio borde ni fondo — ion-item es el contenedor
   ion-input, ion-select, ion-textarea {
     --background:  transparent;
     border:        none !important;
@@ -211,13 +194,11 @@ ion-item {
   }
 }
 
-// ── ion-input / ion-select — solo color, Ionic maneja el resto ─
 ion-input, ion-select {
   --highlight-color-focused: var(--ion-color-primary);
   --highlight-color-valid:   var(--ion-color-primary);
 }
 
-// ── ion-checkbox ──────────────────────────────────────────────
 ion-checkbox {
   --size:             22px;
   --border-radius:    var(--radius-sm);
@@ -230,7 +211,6 @@ ion-checkbox {
   flex-shrink: 0;
 }
 
-// ── ion-chip ──────────────────────────────────────────────────
 ion-chip {
   --background: rgba(255, 255, 255, 0.08);
   --color:      var(--color-text-muted);
@@ -243,13 +223,12 @@ ion-chip {
   transition: all 0.2s ease;
 
   &.active {
-    --background: rgba(252, 101, 31, 0.25);
-    --color:      #fc651f;
-    border-color: rgba(252, 101, 31, 0.55);
+    --background: rgba(93, 193, 185, 0.20);
+    --color:      #5dc1b9;
+    border-color: rgba(93, 193, 185, 0.55);
   }
 }
 
-// ── ion-button ────────────────────────────────────────────────
 ion-button {
   --background:      var(--color-primary);
   --color:           #ffffff;

@@ -23,6 +23,15 @@
             ★ {{ producto.rating.rate }} ({{ producto.rating.count }} opiniones)
           </p>
         </ion-label>
+        @if (mostrarCarrito) {
+          <ion-button
+            slot="end"
+            color="primary"
+            (click)="onAgregarAlCarrito(producto)"
+          >
+            Agregar al carrito
+          </ion-button>
+        }
         @if (mostrarEliminar) {
           <ion-button
             expand="block"

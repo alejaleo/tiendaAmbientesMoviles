@@ -1,11 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>market</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Market</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="page-content">
-    <app-lista-producto [listaProductos]="productsPage"></app-lista-producto>
+    <app-lista-producto
+      [listaProductos]="productos"
+      [mostrarCarrito]="true"
+      (agregarAlCarrito)="onAgregarAlCarrito()">
+    </app-lista-producto>
   </div>
 </ion-content>

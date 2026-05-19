@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Product} from '../interfaces/product';
+import { Product } from '../interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -7,45 +7,26 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-  url: string = 'https://fakestoreapi.com/products';
-  constructor(private http: HttpClient){}
+  private url = 'https://fakestoreapi.com/products';
 
   productsPage: Product[] = [];
   localProducts: Product[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.url);
+  }
 
   addProduct(product: Product) {
     this.localProducts.push(product);
   }
 
-  getProducts() {
-    this.getProductsFromApi().subscribe({
-      next:(response: Product[])=>{
-        console.log("response",response)
-        this.productsPage.push(...response);
-        return this.productsPage;
-      },
-      error:(err)=>{
-        console.error('Error al obtener productos desde la API: ', err);
-        return this.productsPage;
-      }
-    })
-
-
+  deleteProduct(productId: number | string) {
+    this.localProducts = this.localProducts.filter(p => p.id !== productId);
   }
 
-  deleteProduct(productId: number) {
-    const index = this.localProducts.findIndex(p => p.id === productId);
-    if (index !== -1) {
-      this.localProducts.splice(index, 1);
-    }
-  }
-
-  getProductsFromApi():Observable<Product[]> {
-    return this.http.get<Product[]>(this.url);
-  }
-
-  addProductToApi(product: Product):Observable<Product> {
+  addProductToApi(product: Product): Observable<Product> {
     return this.http.post<Product>(this.url, product);
   }
-
 }
